@@ -1,0 +1,103 @@
+/* Header */
+header {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 20px;
+  }
+  
+  /* Navigation */
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  /* Body */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  /* Page Title */
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin: 2rem 0;
+  }
+  
+  /* Form */
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Form Labels */
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.2rem;
+  }
+  
+  /* Form Inputs */
+  input[type="text"],
+  input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Form Submit Button */
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+  
+  /* Form Success Message */
+  p {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  /* Links */
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

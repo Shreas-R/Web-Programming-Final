@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleAccount.css" />
+    <script src="script.js" defer></script>
+</head>
+
+  <body>
+    <h1>My Account</h1>
+    <div id="username"></div>
+    <h2>My Courses</h2>
+    <ul id="courseList"></ul>
+
+    <h1>Course Catalog</h1>
+    <div>
+      <label for="filter-code">Filter by Code:</label>
+      <input type="text" id="filter-code" name="filter-code" />
+      <br />
+      <label for="filter-num">Filter by Number:</label>
+      <input type="text" id="filter-num" name="filter-num" />
+      <br />
+      <button type="submit" onclick="loadCourses()">Filter</button>
+    </div>
+    <ul id="courses-list">
+      <!-- Courses will be added dynamically here -->
+    </ul>
+    <button id="remove" onclick="logout()">Logout</button>
+
+    <script>
+      function loadCourses() {
+        const id = localStorage.getItem("userId");
+        if (!id) {
+          window.location.href = "index.html";
+        } else {
+          fetch(`/account/${id}`)
+            .then((response) => response.json())
+            .then((data) => {
+              displayUser(data.user);
+              displayCourseList(data.user.courses);
+            })
+            .catch((error) => console.error(error));
+        }
+      }
+
+      function displayUser(user) {
+        document.getElementById(
+          "username"
+        ).textContent = `Username: ${user.username}`;
+      }
+
+      function displayCourseList(courses) {
+        const courseList = document.getElementById("courseList");
+        courseList.innerHTML = "";
+        courses.forEach((course) => {
+          const li = document.createElement("li");
+          li.textContent = `${course.code} ${course.num}: ${course.name} - ${course.description}  `;
+
+          const removeButton = document.createElement("button");
+          removeButton.textContent = "Remove";
+          removeButton.addEventListener("click", () => {
+            removeCourse(course);
+          });
+
+          li.appendChild(removeButton);
+          courseList.appendChild(li);
+        });
+      }
+
+      function removeCourse(course) {
+        const id = localStorage.getItem("userId");
+        fetch(`/account/${id}/courses/remove`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(course),
+        })
+          .then(() => {
+            alert("Course removed!");
+            loadCourses();
+          })
+          .catch((error) => console.error(error));
+      }
+
+      function logout() {
+        localStorage.removeItem("userId");
+        window.location.href = "index.html";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        loadCourses();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Catalog</title>
+    <link rel="stylesheet" href="styleIndex.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body onload="loadCourses()">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Course Catalog</h1>
+      <div>
+        <label for="filter-code">Filter by Course Code:</label>
+        <input type="text" id="filter-code" name="filter-code" />
+        <br />
+        <label for="filter-num">Filter by Course Number:</label>
+        <input type="text" id="filter-num" name="filter-num" />
+        <br />
+        <button type="submit" onclick="loadCourses()">Filter Courses</button>
+      </div>
+      <ul id="courses-list">
+        <!-- Courses will be displayed dynamically here -->
+      </ul>
+    </main>
+    <footer>
+      <p>&copy; 2023 MyCourseCatalog.com</p>
+    </footer>
+  </body>
+</html>
