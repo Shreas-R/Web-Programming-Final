@@ -32,19 +32,30 @@
 
     <script>
       function loadCourses() {
-        const id = localStorage.getItem("userId");
-        if (!id) {
-          window.location.href = "index.html";
-        } else {
-          fetch(`/account/${id}`)
-            .then((response) => response.json())
-            .then((data) => {
-              displayUser(data.user);
-              displayCourseList(data.user.courses);
-            })
-            .catch((error) => console.error(error));
-        }
+  fetch("courses.json")
+    .then((response) => response.json())
+    .then((data) => {
+      let filteredCourses = data;
+
+      const codeFilter = document.getElementById("filter-code").value;
+      if (codeFilter) {
+        filteredCourses = filteredCourses.filter(
+          (course) => course.code.toLowerCase() === codeFilter.toLowerCase()
+        );
       }
+
+      const numFilter = document.getElementById("filter-num").value;
+      if (numFilter) {
+        filteredCourses = filteredCourses.filter(
+          (course) => course.num.toLowerCase() === numFilter.toLowerCase()
+        );
+      }
+
+      displayCourses(filteredCourses);
+    })
+    .catch((error) => console.error(error));
+}
+
 
       function displayUser(user) {
         document.getElementById(
@@ -52,23 +63,24 @@
         ).textContent = `Username: ${user.username}`;
       }
 
-      function displayCourseList(courses) {
-        const courseList = document.getElementById("courseList");
-        courseList.innerHTML = "";
-        courses.forEach((course) => {
-          const li = document.createElement("li");
-          li.textContent = `${course.code} ${course.num}: ${course.name} - ${course.description}  `;
+      function displayCourses(courses) {
+  const coursesList = document.getElementById("courses-list");
+  coursesList.innerHTML = "";
 
-          const removeButton = document.createElement("button");
-          removeButton.textContent = "Remove";
-          removeButton.addEventListener("click", () => {
-            removeCourse(course);
-          });
+  courses.forEach((course) => {
+    const li = document.createElement("li");
+    li.textContent = `${course.code} ${course.num}: ${course.name} - ${course.description}  `;
 
-          li.appendChild(removeButton);
-          courseList.appendChild(li);
-        });
-      }
+    const addButton = document.createElement("button");
+    addButton.textContent = "Add";
+    addButton.addEventListener("click", () => {
+      addCourse(course);
+    });
+
+    li.appendChild(addButton);
+    coursesList.appendChild(li);
+  });
+}
 
       function removeCourse(course) {
         const id = localStorage.getItem("userId");

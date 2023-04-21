@@ -1,103 +1,103 @@
 /* Header */
 header {
-    background-color: #2d2d2d;
+    background-color: #f0ad4e;
     color: #ffffff;
-    padding: 20px;
-  }
-  
-  /* Navigation */
-  nav ul {
+    padding: 30px;
+    }
+    
+    /* Navigation */
+    nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-  }
-  
-  nav ul li {
+    }
+    
+    nav ul li {
     display: inline-block;
-    margin-right: 20px;
-  }
-  
-  nav ul li a {
+    margin-right: 30px;
+    }
+    
+    nav ul li a {
     color: #ffffff;
     text-decoration: none;
-  }
-  
-  /* Body */
-  body {
+    }
+    
+    /* Body */
+    body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-  }
-  
-  /* Page Title */
-  h1 {
+    background-color: #fafafa;
+    }
+    
+    /* Page Title */
+    h1 {
     text-align: center;
-    font-size: 2rem;
-    color: #333;
-    margin: 2rem 0;
-  }
-  
-  /* Form */
-  form {
-    max-width: 400px;
+    font-size: 3rem;
+    color: #4c4c4c;
+    margin: 3rem 0;
+    }
+    
+    /* Form */
+    form {
+    max-width: 500px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 3rem;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Form Labels */
-  label {
+    border-radius: 7px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Form Labels */
+    label {
     display: block;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-size: 1.2rem;
-  }
-  
-  /* Form Inputs */
-  input[type="text"],
-  input[type="password"] {
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  /* Form Submit Button */
-  button[type="submit"] {
+    color: #4c4c4c;
+    font-size: 1.5rem;
+    }
+    
+    /* Form Inputs */
+    input[type="text"],
+    input[type="password"] {
     display: block;
     width: 100%;
-    padding: 0.5rem;
-    font-size: 1.2rem;
-    background-color: #007bff;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    }
+    
+    /* Form Submit Button */
+    button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background-color: #4caf50;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #0069d9;
-  }
-  
-  /* Form Success Message */
-  p {
-    margin-top: 1rem;
+    }
+    
+    button[type="submit"]:hover {
+    background-color: #388e3c;
+    }
+    
+    /* Form Success Message */
+    p {
+    margin-top: 2rem;
     text-align: center;
-    font-size: 1.2rem;
-  }
-  
-  /* Links */
-  a {
-    color: #007bff;
+    font-size: 1.5rem;
+    color: #4caf50;
+    }
+    
+    /* Links */
+    a {
+    color: #4caf50;
     text-decoration: none;
-  }
-  
-  a:hover {
+    }
+    
+    a:hover {
     text-decoration: underline;
-  }
-  
+    }
